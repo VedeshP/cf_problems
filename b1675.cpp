@@ -15,13 +15,35 @@
 #include <algorithm>
 #include <numeric>
 #include <limits.h>
-#include <cmath>
 
 using namespace std;
 
 void solve()
 {
-
+    int n; cin >> n;
+    vi vt(n);
+    fr(i, 0, n)
+    {
+        cin >> vt[i];
+    }
+    int count = 0;
+    _fr(i, n - 2, -1)
+    {
+        if (vt[i + 1] <= vt[i])
+        {
+            while (vt[i + 1] <= vt[i] && vt[i] > 0)
+            {
+                vt[i] /= 2;
+                count++;
+            }
+            if (vt[i] == vt[i + 1]) 
+            {
+                cout << -1 << '\n';
+                return;
+            }
+        }
+    }
+    cout << count << '\n';
 }
 
 int main(void)
