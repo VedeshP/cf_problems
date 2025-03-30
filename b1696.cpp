@@ -17,13 +17,26 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n; cin >> n;
+    vi a(n);
+    fr(i, 0, n) cin >> a[i];
+    int ans = 0;
+    if (a[0] != 0) ans++;
+    fr(i, 1, n)
+    {
+        if (a[i] != 0 && a[i - 1] == 0)
+        {
+            ans++;
+        }
+    }
+    if (ans == 1) cout << ans << '\n';
+    else if (ans == 0) cout << ans << '\n';
+    else cout << 2 << '\n';
 }
 
 int main(void)

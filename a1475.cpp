@@ -17,13 +17,22 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    ll n; cin >> n;
+    while (n > 1)
+    {
+        if (n % 2 != 0)
+        {
+            cout << "YES" << '\n';
+            return;
+        }
+        n /= 2;
+    }
+    cout << "NO" << '\n';
 }
 
 int main(void)

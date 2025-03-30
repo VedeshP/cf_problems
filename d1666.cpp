@@ -17,13 +17,36 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    string s, t; cin >> s >> t;
+    int n = s.size(); int m = t.size();
+    map<char, int> tmap;
+    fr(i, 0, m) tmap[t[i]]++;
+    _fr(j, n - 1, -1)
+    {
+        if (tmap[s[j]] > 0)
+        {
+            tmap[s[j]]--;
+            continue;
+        }
+        else 
+        {
+            s[j] = '.';
+        }
+    }
+    string ans;
+    fr(i, 0, n)
+    {
+        if (s[i] != '.') ans.PB(s[i]);
+    }
+    // cout << s << '\n';
+    // cout << ans << '\n';
+    if (ans == t) cout << "YES" << '\n';
+    else cout << "NO" << '\n';
 }
 
 int main(void)

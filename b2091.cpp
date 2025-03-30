@@ -17,13 +17,32 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n, x; cin >> n >> x;
+    vi vt(n);
+    fr(i, 0, n)
+    {
+        cin >> vt[i];
+    }
+    int team = 0;
+    int curr_min = INT_MAX;
+    int size = 0;
+    sort(vt.begin(), vt.end());
+    _fr(i, n - 1, -1)
+    {
+        size++;
+        curr_min = min(vt[i], curr_min);
+        if ((curr_min * size) >= x)
+        {
+            team++;
+            size = 0;
+        } 
+    }
+    cout << team << '\n';
 }
 
 int main(void)

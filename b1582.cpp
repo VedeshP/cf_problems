@@ -17,13 +17,24 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n; cin >> n;
+    vector<ll> vt(n);
+    ll one = 0, zero = 0;
+    fr(i, 0, n)
+    {
+        cin >> vt[i];
+        if (vt[i] == 0) zero++;
+        if (vt[i] == 1) one++;
+    }
+    ll ans = 0;
+    ans = pow(2, zero);
+    ans *= one;
+    cout << ans << '\n';
 }
 
 int main(void)

@@ -17,13 +17,14 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    string s; cin >> s;
+    s[0] = s[s.size() - 1];
+    cout << s << '\n';
 }
 
 int main(void)

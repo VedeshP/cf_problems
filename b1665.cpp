@@ -17,13 +17,34 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n; cin >> n;
+    vector<ll> vt(n);
+    map<int, int> mp;
+    fr(i, 0, n)
+    {
+        cin >> vt[i];
+        mp[vt[i]]++;
+    }
+    int maxi = 0;
+    for (const auto&ele : mp)
+    {
+        if (ele.S > maxi) maxi = ele.S;
+    }
+    int change = n - maxi;
+    int count = 0;
+    while (change > 0)
+    {
+        count += min(maxi, change);
+        change -= min(maxi, change);
+        count++;
+        maxi *= 2;
+    }
+    cout << count << '\n';
 }
 
 int main(void)

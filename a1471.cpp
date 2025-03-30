@@ -17,13 +17,22 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    ll n, x; cin >> n >> x;
+    ll mx = 0, mn = 0;
+    ll y;
+    fr(i, 0, n)
+    {
+        cin >> y;
+        mn += y;
+        mx += ceil((1.0 * y) / x);
+    }
+    mn = ceil((1.0 * mn) / x);
+    cout << mn << " " << mx << '\n';
 }
 
 int main(void)

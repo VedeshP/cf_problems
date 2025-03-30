@@ -17,13 +17,13 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n, m, i, j; cin >> n >> m >> i >> j;
+    cout << 1 << " " << m << " " << n << " " << 1 << '\n'; 
 }
 
 int main(void)

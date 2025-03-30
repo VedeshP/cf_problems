@@ -17,13 +17,27 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
-#include <set>
 
 using namespace std;
 
 void solve()
 {
-
+    int n, k; cin >> n >> k;
+    vi vt(n * k);
+    // fr(i, 0, n * k) cout << i << " " ;
+    fr(i, 0, (n * k))
+    {
+        cin >> vt[i];
+    }
+    int mxsum = 0;
+    int i = n * k;
+    while(k--)
+    {
+        // i -= ceil((1.0 * n) / 2);
+        i -= (n / 2) + 1;
+        mxsum += vt[i];
+    }
+    cout << mxsum << '\n';
 }
 
 int main(void)
