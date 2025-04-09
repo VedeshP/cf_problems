@@ -17,33 +17,33 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
+#include <set>
 
 using namespace std;
 
-void solve()
+int solve()
 {
-    int n; cin >> n;
-    vi vt(n);
-    fr(i, 0, n) cin >> vt[i];
-    
-    fr(i, 1, n - 1)
+    int a, b, c; cin >> a >> b >> c;
+    int sure = 0;
+    if (a == 1) sure++;
+    if (b == 1) sure++;
+    if (c == 1) sure++;
+    if (sure >= 2)
     {
-        if (vt[i] > vt[i - 1] && vt[i] > vt[i + 1])
-        {
-            cout << "YES" << '\n';
-            cout << i << " " << i + 1 << " " << i + 2 << '\n';
-            return;
-        }
+        return 1;
     }
-    cout << "NO" << '\n';
+    return 0;
 }
 
 int main(void)
 {
     int t;
     cin >> t;
+    int ans = 0;
     for (int i = 0; i < t; i++)
     {
-        solve();
+        int count = solve();
+        ans += count;
     }
+    cout << ans << '\n';
 }

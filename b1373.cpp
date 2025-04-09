@@ -17,25 +17,32 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
+#include <set>
 
 using namespace std;
 
 void solve()
 {
-    int n; cin >> n;
-    vi vt(n);
-    fr(i, 0, n) cin >> vt[i];
-    
-    fr(i, 1, n - 1)
+    string s; cin >> s;
+    int n = s.size();
+    int one = 0, zero = 0;
+    fr(i, 0, n)
     {
-        if (vt[i] > vt[i - 1] && vt[i] > vt[i + 1])
+        if (s[i] == '1') one++;
+        else zero++;
+    }
+    int plays = 0;
+    while (one && zero && n)
+    {
+        if (one && zero)
         {
-            cout << "YES" << '\n';
-            cout << i << " " << i + 1 << " " << i + 2 << '\n';
-            return;
+            one--; zero--;
+            n -= 2;
+            plays++;
         }
     }
-    cout << "NO" << '\n';
+    if (plays % 2 != 0) cout << "DA" << '\n';
+    else cout << "NET" << '\n';
 }
 
 int main(void)

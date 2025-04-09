@@ -17,25 +17,42 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
+#include <set>
 
 using namespace std;
 
 void solve()
 {
-    int n; cin >> n;
-    vi vt(n);
-    fr(i, 0, n) cin >> vt[i];
-    
-    fr(i, 1, n - 1)
+    // ll n; cin >> n;
+    // cout << 2 * n << '\n'; this is from a different contest problem
+
+    ll n; cin >> n;
+    int ans = 0;
+    if (n == 1)
     {
-        if (vt[i] > vt[i - 1] && vt[i] > vt[i + 1])
+        cout << 0 << '\n';
+        return;
+    }
+    while (n > 1)
+    {
+        if (n % 3 != 0)
         {
-            cout << "YES" << '\n';
-            cout << i << " " << i + 1 << " " << i + 2 << '\n';
+            cout << -1 << '\n';
             return;
         }
+        else if (n % 2 == 0 && n % 3 == 0)
+        {
+            ans++;
+            n /= 6;
+        }
+        else if (n % 3 == 0 && n % 2 != 0)
+        {
+            ans += 2;
+            n /= 3;
+        }
+        
     }
-    cout << "NO" << '\n';
+    cout << ans << '\n';
 }
 
 int main(void)

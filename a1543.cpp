@@ -17,25 +17,31 @@
 #include <limits.h>
 #include <cmath>
 #include <map>
+#include <set>
 
 using namespace std;
 
 void solve()
 {
-    int n; cin >> n;
-    vi vt(n);
-    fr(i, 0, n) cin >> vt[i];
-    
-    fr(i, 1, n - 1)
+    ll a, b; cin >> a >> b;
+    if (a - b == 0)
     {
-        if (vt[i] > vt[i - 1] && vt[i] > vt[i + 1])
-        {
-            cout << "YES" << '\n';
-            cout << i << " " << i + 1 << " " << i + 2 << '\n';
-            return;
-        }
+        cout << 0 << " " << 0 << '\n';
     }
-    cout << "NO" << '\n';
+    else
+    {
+        ll x = abs(a - b);
+        ll m = min(a % x, x - a % x);
+        cout << x << " " << m << '\n';
+    }
+    // else if (abs(a - b) == 1)
+    // {
+    //     cout << 1 << " " << 0 << '\n';
+    // }
+    // else 
+    // {
+    //     cout << abs(a - b) << " " << min(a % abs(a - b), b % abs(a - b)) << '\n';
+    // }
 }
 
 int main(void)

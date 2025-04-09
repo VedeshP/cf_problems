@@ -19,20 +19,34 @@ using namespace std;
 
 void solve()
 {
-    int n; cin >> n;
-    vi vt(n);
+    int n, q; cin >> n >> q;
+    vector<ll> vt(n);
+    ll sum = 0;
     fr(i, 0, n)
     {
         cin >> vt[i];
-        if (vt[i] == 1) vt[i]++;
-    }
-    // if (vt[0] == 1) vt[0]++;
-    fr(i, 0, n - 1)
+        sum += vt[i];
+    } 
+    vector<ll> prefix(n + 1, 0);
+    fr(i, 1, n + 1)
     {
-        if (vt[i + 1] % vt[i] == 0) vt[i + 1]++;
+        prefix[i] = prefix[i - 1] + vt[i - 1];
     }
-    fr(i, 0, n) cout << vt[i] << ' ';
-    cout << '\n';
+    fr(i, 0, q)
+    {
+        ll l, r, k; cin >> l >> r >> k;
+        ll remove = prefix[r] - prefix[l - 1];
+        ll add = (r - l + 1) * k;
+        ll total = sum - remove + add;
+        if (total % 2 != 0)
+        {
+            cout << "YES" << '\n';
+        }
+        else
+        {
+            cout << "NO" << '\n';
+        }
+    }
 }
 
 int main(void)
