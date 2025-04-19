@@ -24,7 +24,29 @@ using namespace std;
 
 void solve()
 {
+    int n; cin >> n;
+    vll vt(n);
+    fr (i, 0, n) cin >> vt[i];
+    vll ans;
+    ans.PB(vt[0]);
+    fr (i, 1, n) 
+    {
+        if (vt[i - 1] <= vt[i])
+        {
+            ans.PB(vt[i]);
+        }
+        else 
+        {
+            ans.PB(vt[i]); ans.PB(vt[i]);
+        }
+    }
 
+    cout << ans.size() << '\n';
+    fr (i, 0, ans.size())
+    {
+        cout << ans[i] << " ";
+    }
+    cout << '\n';
 }
 
 int main(void)

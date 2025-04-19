@@ -1,7 +1,6 @@
 #define ll long long
 #define pii pair<int,int>
 #define vi vector<int>
-#define vll vector<ll>
 
 #define F first
 #define S second
@@ -24,15 +23,22 @@ using namespace std;
 
 void solve()
 {
-
+    int n, t; cin >> n >> t;
+    string s; cin >> s;
+    vi bpos;
+    fr (i, 0, n)
+    {
+        if (s[i] == 'B') bpos.PB(i);
+    }
+    
 }
 
 int main(void)
 {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }
