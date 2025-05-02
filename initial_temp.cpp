@@ -1,5 +1,6 @@
 #define ll long long
 #define pii pair<int,int>
+#define pll pair<ll, ll>
 #define vi vector<int>
 #define vll vector<ll>
 
@@ -14,6 +15,7 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
+#include <functional>
 #include <numeric>
 #include <limits.h>
 #include <cmath>
