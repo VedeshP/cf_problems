@@ -27,7 +27,25 @@ using namespace std;
 
 void solve()
 {
+    ll n; cin >> n;
 
+    if (n % 2 == 0)
+    {
+        cout << n / 2 << " " << n / 2 << '\n';
+        return;
+    }
+    ll a = 1, b;
+    for (ll i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            a = n / i;
+            break;
+        }
+    }
+    b = n - a;
+    cout << a << " " << b << '\n';
+    // this will most prob give tle
 }
 
 int main(void)

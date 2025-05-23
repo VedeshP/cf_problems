@@ -27,7 +27,14 @@ using namespace std;
 
 void solve()
 {
+    ll n, d; cin >> n >> d;
+    vll vt(n);
 
+    fr (i, 0, n) cin >> vt[i];
+
+    sort(vt.begin(), vt.end(), greater<ll>());
+    ll ans = 0;
+    
 }
 
 int main(void)
