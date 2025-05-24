@@ -17,6 +17,7 @@
 #include <unordered_set>
 #include <algorithm>
 #include <functional>
+#include <stack>
 #include <numeric>
 #include <limits.h>
 #include <cmath>

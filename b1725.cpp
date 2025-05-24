@@ -34,15 +34,48 @@ void solve()
 
     sort(vt.begin(), vt.end(), greater<ll>());
     ll ans = 0;
-    
+
+    ll x = vt[0];
+    ll div = ceil((d + 1.0) / x);
+    // cout << div << '\n';
+    ll start = 0;
+    ll end = n - 1;
+    ll left = end - start + 1;
+    // cout << left << '\n';
+    while (div <= left)
+    {
+        ans++;
+        // div--;
+        start++;
+        // vt.erase(vt.begin());
+        end -= div - 1;
+
+        left = end - start + 1;
+
+        // while (div--)
+        // {
+        //     vt.pop_back();
+        // }
+        // fr (i, start, end + 1) cout << vt[i] << ' ';
+        // cout << '\n';
+
+        if (end < start || start >= n || end < 0)
+        {
+            break;
+        }
+
+        div = ceil((d + 1.0) / vt[start]);
+    }
+
+    cout << ans << '\n';
 }
 
 int main(void)
 {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }
