@@ -26,20 +26,35 @@
 
 using namespace std;
 
+bool isequal(ll n)
+{
+    set<int> digits;
+    while (n > 0)
+    {
+        digits.insert(n % 10);
+        n /= 10;
+    }
+
+    return digits.size() < 4;
+}
+
 void solve()
 {
-
+    ll n; cin >> n;
+    ll ans = n + 1;
+    while (isequal(ans))
+    {
+        ans++;
+    }
+    cout << ans << '\n';
 }
 
 int main(void)
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

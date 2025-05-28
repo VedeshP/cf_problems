@@ -1,18 +1,23 @@
 #define ll long long
 #define pii pair<int,int>
+#define pll pair<ll, ll>
 #define vi vector<int>
+#define vll vector<ll>
 
 #define F first
 #define S second
 #define PB push_back
 
-#define fr(i, a, b) for (int i = a; i < b; i++)
-#define _fr(i, a, b) for (int i = a; i > b; i--)
+#define fr(i, a, b) for (ll i = a; i < b; i++)
+#define _fr(i, a, b) for (ll i = a; i > b; i--)
 
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <algorithm>
+#include <functional>
+#include <stack>
 #include <numeric>
 #include <limits.h>
 #include <cmath>
@@ -23,25 +28,14 @@ using namespace std;
 
 void solve()
 {
-    int n, t; cin >> n >> t;
     string s; cin >> s;
-
-
-    fr (j, 0, t)
+    
+    if (s[0] >= 'a')
     {
-        fr (i, 0, n - 1)
-        {
-            if (s[i] == 'B' && s[i + 1] == 'G')
-            {
-                swap(s[i], s[i + 1]);
-                // i++;
-            }
-        }
-        cout << s << '\n';
+        s[0] -= 32;
     }
 
     cout << s << '\n';
-    
 }
 
 int main(void)
