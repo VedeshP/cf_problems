@@ -30,7 +30,35 @@ using namespace std;
 
 void solve()
 {
+    ll n, x; cin >> n >> x;
+    vll vt(n, 0);
+    vector<pll> inter(n, MP(0, 0));
 
+    fr (i, 0, n)
+    {
+        cin >> vt[i];
+        inter[i].F = vt[i] - x;
+        inter[i].S = vt[i] + x;
+    }
+
+    ll change = 0;
+
+    ll l = inter[0].F;
+    ll r = inter[0].S;
+    fr (i, 1, n)
+    {
+        l = max(l, inter[i].F);
+        r = min(r, inter[i].S);
+
+        if (l > r)
+        {
+            change++;
+            l = inter[i].F;
+            r = inter[i].S;
+        }
+    }
+
+    cout << change << '\n';
 }
 
 int main(void)
