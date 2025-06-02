@@ -21,8 +21,8 @@
 #include <functional>
 #include <stack>
 #include <numeric>
-#include <string>
 #include <limits.h>
+#include <string>
 #include <cmath>
 #include <map>
 #include <set>
@@ -31,7 +31,23 @@ using namespace std;
 
 void solve()
 {
+    string s; cin >> s;
+    ll n = s.size();
+    if (n > 10)
+    {
+        string ans;
+        ans.PB(s[0]);
+        string len = to_string(n - 2);
+        fr (i, 0, len.size()) ans.PB(len[i]);
+        ans.PB(s[n - 1]);
 
+        cout << ans << '\n';
+        return;
+    }
+
+    cout << s << '\n';
+
+    return;
 }
 
 int main(void)

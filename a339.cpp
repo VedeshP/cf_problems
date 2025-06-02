@@ -31,7 +31,33 @@ using namespace std;
 
 void solve()
 {
+    // sure i will write an overly complicated solution
+    string s; cin >> s;
+    vector<char> vt;
+    ll n = s.size();
+    fr (i, 0, n)
+    {
+        if (isdigit(s[i]))
+        {
+            vt.PB(s[i]);
+        }
+    }
+    sort(vt.begin(), vt.end());
+    
+    // fr (i, 0, vt.size()) cout << vt[i];
+    // cout << '\n';
 
+    int j = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (isdigit(s[i]))
+        {
+            s[i] = vt[j];
+            j++;
+        }
+    }
+
+    cout << s << '\n';
 }
 
 int main(void)
@@ -39,10 +65,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

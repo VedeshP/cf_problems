@@ -31,7 +31,13 @@ using namespace std;
 
 void solve()
 {
+    ll n; cin >> n;
+    vll p(n, 0), q(n, 0);
+    fr (i, 0 , n) cin >> p[i];
+    fr (i, 0, n) cin >> q[i];
 
+    ll modulo = 998244353;
+    
 }
 
 int main(void)

@@ -31,6 +31,12 @@ using namespace std;
 
 void solve()
 {
+    ll a, b, c, d; cin >> a >> b >> c >> d;
+   if ((b <= a && b <= c) || (d <= a && d <= c))
+   {
+         cout << "Gellyfish" << '\n';
+   }
+   else cout << "Flower" << '\n';
 
 }
 
