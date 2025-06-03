@@ -35,13 +35,42 @@ int gcd(int a,int b)
     else return gcd(b, a % b);
 }
 
-int lcm(int a,int b)
-{
-    return a * b / gcd(a, b);
-}
-
 void solve()
 {
+    ll n, k; cin >> n >> k;
+    if (k < n - 2 || k > n - 1)
+    {
+        cout << "NO" << '\n';
+        return;
+    }
+    vll ans;
+    ans.PB(1);
+    ll pair = 0;
+    while (ans.size() < n)
+    {
+        if (pair == k)
+        {
+            if (ans[ans.size() - 1] == 1)
+            {
+                ans.PB(-1);
+            }
+            else 
+            {
+                ans.PB(1);
+            }
+        }
+        else
+        {
+            ans.PB(1);
+            ans.PB(1);
+            pair++;
+        }
+    }
+
+    cout << "YES" << '\n';
+    fr (i, 0, ans.size()) cout << ans[i] << ' ';
+    cout << '\n';
+    
 
 }
 

@@ -35,14 +35,35 @@ int gcd(int a,int b)
     else return gcd(b, a % b);
 }
 
-int lcm(int a,int b)
-{
-    return a * b / gcd(a, b);
-}
-
 void solve()
 {
+    string s; cin >> s;
+    ll n = s.size();
 
+    ll ans = 0;
+    if (s[0] == '_')
+    {
+        ans++;
+    }
+    if (s[n - 1] == '_')
+    {
+        ans++;
+    }
+    if (n == 1)
+    {
+        if (s[0] == '^') cout << 1 << '\n';
+        else cout << 2 << '\n';
+        return;
+    }
+    fr (i, 0, n - 1)
+    {
+        if (s[i] == '_' && s[i + 1] == '_')
+        {
+            ans++;
+        }
+    }
+
+    cout << ans << '\n';
 }
 
 int main(void)
