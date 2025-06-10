@@ -20,7 +20,6 @@
 #include <algorithm>
 #include <functional>
 #include <deque>
-#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
 #include <string>
@@ -44,7 +43,27 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n; cin >> n;
+    map<string, int> mp;
+    fr (i, 0, n)
+    {
+        string s; cin >> s;
+        mp[s]++;
+    }
+    ll mxfrq = 0;
+    string mxstr;
+    for (auto it : mp)
+    {
+        ll cnt = it.S;
+        string stri = it.F;
+        if (cnt > mxfrq)
+        {
+            mxfrq = cnt;
+            mxstr = stri;
+        }
+    }
 
+    cout << mxstr << '\n';
 }
 
 int main(void)
@@ -52,10 +71,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

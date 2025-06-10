@@ -19,8 +19,6 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <deque>
-#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
 #include <string>
@@ -44,7 +42,31 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n, x; cin >> n >> x;
+    vi vt(n);
+    fr (i, 0, n) cin >> vt[i];
 
+    int btn = 0;
+    fr (i, 0, n)
+    {
+        if (btn == 1) x--;
+        if (vt[i] == 1)
+        {
+            btn = 1;
+        }
+        if (x <= 0 && vt[i] == 1)
+        {
+            cout << "NO" << '\n';
+            return;
+        }
+    }
+    // if (x < 0)
+    // {
+    //     cout << "NO" << '\n';
+    //     return;
+    // }
+
+    cout << "YES" << '\n';
 }
 
 int main(void)

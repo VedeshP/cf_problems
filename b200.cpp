@@ -44,7 +44,16 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    double sum = 0;
+    fr (i, 0, n)
+    {
+        ll x; cin >> x;
+        sum += x;
+    }
+    double ans = sum / n;
+    cout << fixed << setprecision(12) << ans << '\n';
+    return;
 }
 
 int main(void)
@@ -52,10 +61,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

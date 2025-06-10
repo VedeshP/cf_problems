@@ -44,7 +44,9 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll h, m; cin >> h >> m;
+    ll ans = (24 - h) * 60 - m;
+    cout << ans << '\n';
 }
 
 int main(void)

@@ -20,7 +20,6 @@
 #include <algorithm>
 #include <functional>
 #include <deque>
-#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
 #include <string>
@@ -44,7 +43,21 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    ll l1 = 0, l0 = 0, r1 = 0, r0 = 0;
+    ll left = 0, right = 0;
+    fr (i, 0, n)
+    {
+        ll l, r; cin >> l >> r;
+        if (l == 1) l1++;
+        else l0++;
+        if (r == 1) r1++;
+        else r0++;
+    }
+    left = min(l1, l0);
+    right = min(r0, r1);
+    cout << left + right << '\n';
+    return;
 }
 
 int main(void)
@@ -52,10 +65,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

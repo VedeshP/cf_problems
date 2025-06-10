@@ -20,7 +20,6 @@
 #include <algorithm>
 #include <functional>
 #include <deque>
-#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
 #include <string>
@@ -44,7 +43,52 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n; cin >> n;
 
+    // insert front and back 
+    bool begin = true;
+    vll vt(n);
+    int left = 0, right = n - 1;
+    fr (i, 1, n + 1)
+    {
+        if (begin)
+        {
+            vt[left++] = i;
+            begin = false;
+        }
+        else
+        {
+            vt[right--] = i;
+            begin = true;
+        }
+    }
+
+    fr (i, 0, vt.size()) cout << vt[i] << ' ';
+    cout << '\n';
+    return;
+    // ll mini = 1, maxi = n, iter = 1;
+    // vll vt;
+    // // vt.PB(1);
+    // ll begin = 1;
+    // ll beginidx = 0;
+    // while (vt.size() < n)
+    // {
+    //     if (begin == 1)
+    //     {
+    //         vt.insert(vt.begin() + beginidx, iter);
+    //         begin = 0;
+    //         beginidx++;
+    //     }
+    //     else
+    //     {
+    //         vt.insert(vt.begin() + beginidx, iter);
+    //         begin = 1;
+    //     }
+    //     iter++;
+    // }
+    
+
+    
 }
 
 int main(void)

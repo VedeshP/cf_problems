@@ -1,4 +1,4 @@
-#define ll long long
+ #define ll long long
 #define pii pair<int,int>
 #define pll pair<ll, ll>
 #define vi vector<int>
@@ -20,7 +20,6 @@
 #include <algorithm>
 #include <functional>
 #include <deque>
-#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
 #include <string>
@@ -44,7 +43,17 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n; cin >> n;
+    ll currcap = 0;
+    ll maxcap = 0;
+    fr (i, 0, n) 
+    {
+        ll in, out; cin >> out >> in;
+        currcap += in - out;
+        maxcap = max(maxcap, currcap);
+    }
 
+    cout << maxcap << '\n';
 }
 
 int main(void)
@@ -52,10 +61,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

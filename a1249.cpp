@@ -44,7 +44,30 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n; cin >> n;
+    vll vt(n);
+    fr (i, 0, n) cin >> vt[i];
 
+    
+    // if (n == 1)
+    // {
+    //     cout << 1 << '\n'; return;
+    // }
+    // sort(vt.begin(), vt.end());
+    // ll l = 0, r = n - 1;
+    // ll choose = 0;
+    // while (l <= r)
+    // {
+    //     if (abs(vt[l] - vt[r]) > 1)
+    //     {
+    //         choose++;
+    //     }
+    //     else break;
+    //     l++; r--;
+    // }
+
+    // cout << choose << '\n';
+    // return;
 }
 
 int main(void)
