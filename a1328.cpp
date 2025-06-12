@@ -19,7 +19,7 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <queue> // also has priority queue
+#include <queue>
 #include <deque>
 #include <iomanip> // required for setprecision
 #include <stack>
@@ -45,7 +45,11 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll a, b; cin >> a >> b;
+    ll x = b / a;
+    ll ans = 0;
+    if (a % b != 0) ans = (((a / b) + 1) * b) - a;
+    cout << ans << '\n';
 }
 
 int main(void)
