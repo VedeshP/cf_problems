@@ -46,30 +46,35 @@ int lcm(int a,int b)
 void solve()
 {
     ll n; cin >> n;
-    vll ans(n, 0);
-    bool add = false;
-    if (n % 2 == 0) add = true;
-    if (add)
+    string s; cin >> s;
+    map<char, int> mpl;
+    fr (i, 0, n - 1)
     {
-        ans[0] = 1;
-        ll toadd = ((n + 1) / 2) + 1;
-        ans[0] += (toadd * n) - (n * (n + 1) / 2);
+        mpl[s[i]]++;
     }
-    else 
+    // bool ans = false;
+    for (auto it : mpl)
     {
-        ans[0] = 1;
-    }
-
-    fr (i, 1, n)
-    {
-        ans[i] = i + 1;
+        if (it.S >= 2)
+        {
+            cout << "Yes" << '\n';
+            return;
+        }
     }
 
-    fr (i, 0, n)
+    mpl[s[0]]--;
+    mpl[s[n - 1]]++;
+
+    for (auto it : mpl)
     {
-        cout << ans[i] << ' ';
+        if (it.S >= 2)
+        {
+            cout << "Yes" << '\n';
+            return;
+        }
     }
-    cout << '\n';
+
+    cout << "No" << '\n';
 }
 
 int main(void)

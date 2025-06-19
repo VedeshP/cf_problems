@@ -46,30 +46,24 @@ int lcm(int a,int b)
 void solve()
 {
     ll n; cin >> n;
-    vll ans(n, 0);
-    bool add = false;
-    if (n % 2 == 0) add = true;
-    if (add)
-    {
-        ans[0] = 1;
-        ll toadd = ((n + 1) / 2) + 1;
-        ans[0] += (toadd * n) - (n * (n + 1) / 2);
-    }
-    else 
-    {
-        ans[0] = 1;
-    }
-
-    fr (i, 1, n)
-    {
-        ans[i] = i + 1;
-    }
+    vi v1(n), v2(n);
 
     fr (i, 0, n)
     {
-        cout << ans[i] << ' ';
+        cin >> v1[i];
     }
-    cout << '\n';
+    fr (i, 0, n)
+    {
+        cin >> v2[i];
+    }
+
+    int ans = v1[n - 1];
+    fr (i, 0, n - 1)
+    {
+        ans += max(0, v1[i] - v2[i + 1]);
+    }
+
+    cout << ans << '\n';
 }
 
 int main(void)

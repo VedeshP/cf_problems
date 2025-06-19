@@ -45,31 +45,23 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll n; cin >> n;
-    vll ans(n, 0);
-    bool add = false;
-    if (n % 2 == 0) add = true;
-    if (add)
-    {
-        ans[0] = 1;
-        ll toadd = ((n + 1) / 2) + 1;
-        ans[0] += (toadd * n) - (n * (n + 1) / 2);
-    }
-    else 
-    {
-        ans[0] = 1;
-    }
-
-    fr (i, 1, n)
-    {
-        ans[i] = i + 1;
-    }
-
+    ll n, s; cin >> n >> s;
+    vll vt(n);
+    ll ans = 0;
     fr (i, 0, n)
     {
-        cout << ans[i] << ' ';
+        cin >> vt[i];
+        // if (s == vt[i])
+        // {
+        //     ans = -1;
+        // }
     }
-    cout << '\n';
+    ll lorr = min(abs(s - vt[0]), abs(vt[n - 1] - s));
+    ans += lorr;
+    ans += vt[n - 1] - vt[0];
+
+    cout << ans << '\n';
+    return;
 }
 
 int main(void)

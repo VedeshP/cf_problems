@@ -45,31 +45,30 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll n; cin >> n;
-    vll ans(n, 0);
-    bool add = false;
-    if (n % 2 == 0) add = true;
-    if (add)
-    {
-        ans[0] = 1;
-        ll toadd = ((n + 1) / 2) + 1;
-        ans[0] += (toadd * n) - (n * (n + 1) / 2);
-    }
-    else 
-    {
-        ans[0] = 1;
-    }
-
-    fr (i, 1, n)
-    {
-        ans[i] = i + 1;
-    }
-
+    ll n, m; cin >> n >> m;
+    vll sizes;
     fr (i, 0, n)
     {
-        cout << ans[i] << ' ';
+        string s; cin >> s;
+        sizes.PB(s.size());
     }
-    cout << '\n';
+    // sort(sizes.begin(), sizes.end());
+
+    ll ans = 0;
+    fr (i, 0, sizes.size())
+    {
+        if (m - sizes[i] >= 0)
+        {
+            m -= sizes[i];
+            ans++;
+        }
+        else 
+        {
+            break;
+        }
+    }
+
+    cout << ans << '\n';
 }
 
 int main(void)
