@@ -12,6 +12,9 @@
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
 
+#define out_NO cout << "NO" << '\n';
+#define out_YES cout << "YES" << '\n';
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -19,8 +22,12 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
+#include <queue> // also has priority queue
+#include <deque>
+#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
+#include <string>
 #include <limits.h>
 #include <cmath>
 #include <map>
@@ -28,25 +35,33 @@
 
 using namespace std;
 
+int gcd(int a,int b)
+{
+    if(b == 0) return a;
+    else return gcd(b, a % b);
+}
+
+int lcm(int a,int b)
+{
+    return a * b / gcd(a, b);
+}
+
 void solve()
 {
-    ll n, k; cin >> n >> k;
-    string s; cin >> s;
-    vll vt(n + 1, 0);
+    int l1, b1, l2, b2, l3, b3; cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
+    
 
-    // ll curr = 0;
-    fr (i, 1, n + 1)
-    {
-        vt[i] = vt[i - 1] + ((s[i - 1] == 'W') ? 1 : 0);
-        // vt[i] = vt[i - 1] + int(s[i - 1] == 'W');
-    }
-    ll ans = INT_MAX;
-    fr (i, k, n + 1)
-    {
-        ans = min(ans, vt[i] - vt[i - k]);
-    }
+    
+    double area = (l1 * b1) + (l2 * b2) + (l3 * b3);
 
-    cout << ans << '\n';
+    double mxarea = max(((l1 * b1), (l2 * b2)), (l3 * b3));
+
+    
+    // double sum = l1 + l2 + l3 + b1 + b2 + b3;
+
+    // if (floor(sqrt(area) == ceil(sqrt(area))) && sqrt(area) == sum / 4) out_YES
+    // else out_NO
+    // return;
 }
 
 int main(void)
