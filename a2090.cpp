@@ -48,7 +48,40 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll x, y, a; cin >> x >> y >> a;
 
+    if (x > a) out_NO
+    else if ((x + y) > a) out_YES
+    else 
+    {
+        ll left = (a / (x + y)) * (x + y);
+        a -= left;
+        // cout << left;
+        // cout << a;
+        // cout << (x + y);
+        if (x > a) out_NO
+        else if ((x + y) > a) out_YES
+    }
+    return;
+    // // for sure this will give tle
+    // ll sum = 0;
+    // ll i = 0;
+    // while (sum <= a)
+    // {
+    //     if (i == 0)
+    //     {
+    //         sum += x;
+    //         i = 1;
+    //     }
+    //     else 
+    //     {
+    //         sum += y;
+    //         i = 0;
+    //     }
+    // }
+    // if (i == 1) cout << "NO" << '\n';
+    // else cout << "YES" << '\n';
+    // return;
 }
 
 int main(void)

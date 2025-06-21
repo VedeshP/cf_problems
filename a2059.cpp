@@ -12,6 +12,9 @@
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
 
+#define out_NO cout << "NO" << '\n';
+#define out_YES cout << "YES" << '\n';
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -19,8 +22,12 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
+#include <queue> // also has priority queue
+#include <deque>
+#include <iomanip> // required for setprecision
 #include <stack>
 #include <numeric>
+#include <string>
 #include <limits.h>
 #include <cmath>
 #include <map>
@@ -28,17 +35,40 @@
 
 using namespace std;
 
+int gcd(int a,int b)
+{
+    if(b == 0) return a;
+    else return gcd(b, a % b);
+}
+
+int lcm(int a,int b)
+{
+    return a * b / gcd(a, b);
+}
+
 void solve()
 {
-    ll n, k; cin >> n >> k;
-    string s; cin >> s;
-    vector<pll> bseg;
+    ll n; cin >> n;
+    set<ll> v1;
+    set<ll> v2;
 
-    ll curr = 0;
-    fr (i, 0, n)
+    fr (i, 0, n) 
     {
-        
+        ll x; cin >> x;
+        v1.insert(x);
     }
+    fr (i, 0, n) 
+    {
+        ll x; cin >> x;
+        v2.insert(x);
+    }
+
+    if (v1.size() + v2.size() > 3)
+    {
+        out_YES
+    }
+    else out_NO
+    return;
 }
 
 int main(void)

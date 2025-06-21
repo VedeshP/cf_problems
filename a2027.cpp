@@ -45,7 +45,17 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n; cin >> n;
+    int wmax = 0, hmax = 0;
+    fr (i, 0, n)
+    {
+        int w, h; cin >> w >> h;
+        wmax = max(wmax, w);
+        hmax = max(hmax, h);
+    }
 
+    cout << 2 * (wmax + hmax) << '\n';
+    return;
 }
 
 int main(void)

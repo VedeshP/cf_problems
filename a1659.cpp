@@ -48,7 +48,44 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, r, b; cin >> n >> r >> b;
+    ll consr = 0;
+    ll maxr = r / (b + 1);
+    ll more = r % (b + 1);
+    string ans;
+    fr (x, 1, b + 2)
+    {
+        fr (i, 0, maxr)
+        {
+            ans += 'R';
+        }
+        if (more > 0 )
+        {
+            ans += 'R';
+            more--;
+        }
+        if (x != b + 1) ans += "B";
+        // if ((consr < maxr) && r > 0)
+        // {
+        //     ans += 'R';
+        //     consr++;
+        //     r--;
+        // }
+        // if (more > 0)
+        // {
+        //     ans += 'R';
+        //     more--;
+        //     r--;
+        // }
+        // else if (b > 0)
+        // {
+        //     ans += 'B';
+        //     consr = 0;
+        //     b--;
+        // }
+    }
 
+    cout << ans << '\n';
 }
 
 int main(void)
