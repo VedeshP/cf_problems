@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,40 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n; cin >> n;
+    vll vt(n);
 
+    fr(i, 0, n) cin >> vt[i];
+
+    pll one = {vt[0], 1}, two;
+    two.S = 0;
+    fr (i, 0, n)
+    {
+        if (vt[i] != one.F)
+        {
+            two.F = vt[i],
+            two.S++;
+        }
+        else one.S++;
+    }
+
+    // cout << one.S << ' ';
+    if (one.S == 2 && two.S > 1)
+    {
+        cout << 1 << '\n';
+        return;
+    }
+    else 
+    {
+        fr (i, 0, n)
+        {
+            if (vt[i] == two.F)
+            {
+                cout << i + 1 << '\n';
+                return;
+            }
+        }
+    }
 }
 
 int main(void)

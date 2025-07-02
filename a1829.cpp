@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,14 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    string s; cin >> s;
+    string cf = "codeforces";
+    int ans = 0;
+    fr (i, 0, 10)
+    {
+        if (s[i] != cf[i]) ans++;
+    }
+    cout << ans << '\n';
 }
 
 int main(void)

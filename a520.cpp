@@ -49,7 +49,22 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    string s; cin >> s;
+    if (n < 26)
+    {
+        out_NO
+    }
+    else 
+    {
+        set<char> st;
+        fr (i, 0, n)
+        {
+            st.insert(tolower(s[i]));
+        }
+        if (st.size() >= 26) out_YES
+        else out_NO
+    }
 }
 
 int main(void)
@@ -57,10 +72,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

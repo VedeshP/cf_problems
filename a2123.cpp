@@ -15,6 +15,9 @@
 #define out_NO cout << "NO" << '\n';
 #define out_YES cout << "YES" << '\n';
 
+#define out_BOB cout << "BOB" << '\n';
+#define out_ALICE cout << "ALICE" << '\n';
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -49,7 +52,9 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    if (n % 4 == 0) out_BOB
+    else out_ALICE
 }
 
 int main(void)

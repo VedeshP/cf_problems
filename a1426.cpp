@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,17 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, x; cin >> n >> x;
+    if (n == 1 || n == 2)
+    {
+        cout << 1 << '\n';
+        return;
+    }
+    ll floor = 1;
+    n -= 2;
+    floor += ceil((n * 1.0) / x);
 
+    cout << floor << '\n';
 }
 
 int main(void)

@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,11 @@ int lcm(int a,int b)
 
 void solve()
 {
+    string s; cin >> s;
+    int a = s[0] - '0';
+    int b = s[2] - '0';
 
+    cout << a + b << '\n';
 }
 
 int main(void)

@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,25 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    int n; cin >> n;
+    if (n <= 3)
+    {
+        out_NO
+        return;
+    }
+    int x = 1, y = 2, z = n - (x + y);
+    if (z % 3 == 0)
+    {
+        z -= 2;
+        y += 2;
+    }
+    if (x == y || x == z || y == z) 
+    {
+        out_NO
+        return;
+    }
+    out_YES
+    cout << x << ' ' << y << ' ' << z << '\n';
 }
 
 int main(void)

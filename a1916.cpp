@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,27 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, k; cin >> n >> k;
+    vll vt(n);
+    fr (i, 0, n) cin >> vt[i];
+    ll mul = 1;
+    fr (i, 0, n)
+    {
+        mul *= vt[i];
+    }
 
+    if (2023 % mul != 0)
+    {
+        out_NO
+        return;
+    }
+    out_YES
+    cout << 2023 / mul << ' ';
+    fr (i, 0, k - 1)
+    {
+        cout << 1 << ' ';
+    }
+    cout << '\n';
 }
 
 int main(void)

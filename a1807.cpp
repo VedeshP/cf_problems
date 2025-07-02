@@ -49,7 +49,9 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll a, b, c; cin >> a>> b >> c;
+    if (a+b==c) cout << '+' << '\n';
+    else if (a-b==c) cout << '-' << '\n';
 }
 
 int main(void)

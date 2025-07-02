@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -47,9 +46,32 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
+
+bool is_prime(int n)
+{
+    if (n <= 1) {
+        return false; 
+    }
+    
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            return false; 
+        }
+    }
+    return true;
+}
+
 void solve()
 {
-
+    int n; cin >> n;
+    if (n > 2 && n % 2 == 0) out_YES
+    else out_NO
+    // if (is_prime(n) || n == 1) out_NO
+    // else out_YES
+    // if (n > 2) out_YES
+    // else out_NO
+    // if ((n / 2) % 2 == 0 && n % 2 == 0) out_YES
+    // else out_NO
 }
 
 int main(void)
@@ -57,10 +79,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

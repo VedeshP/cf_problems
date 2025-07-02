@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,37 @@ int lcm(int a,int b)
 
 void solve()
 {
+    int n, m; cin >> n >> m;
+    string s, t; cin >> s >> t;
 
+    vll checkidx;
+    fr (i, 0, n - 1)
+    {
+        if (s[i] == s[i + 1]) checkidx.PB(i);
+    }
+    if (checkidx.size() > 0)
+    {
+        fr (i, 0, m - 1)
+    {
+        if (t[i] == t[i + 1]) 
+        {
+            out_NO
+            return;
+        }
+    }
+    fr (i, 0, checkidx.size())
+    {
+        ll idx = checkidx[i];
+        if (s[idx] == t[0] || s[idx + 1] == t[m - 1])
+        {
+            out_NO
+            return;
+        }
+    }
+    }
+    
+    out_YES
+    return;
 }
 
 int main(void)

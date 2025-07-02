@@ -49,7 +49,30 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    vll vt(n);
+    ll neg = 0;
+    bool zero = false;
+    fr (i, 0, n)
+    {
+        cin >> vt[i];
+        if (vt[i] < 0) neg++;
+        if (vt[i] == 0) zero = true;
+    }
+    if (zero)
+    {
+        cout << 0 << '\n';   
+        return;
+    }
+    if (neg % 2 == 0)
+    {
+        cout << 1 << '\n';
+        cout << 1 << ' ' << 0 << '\n';
+    }
+    else 
+    {
+        cout << 0 << '\n';
+    }
 }
 
 int main(void)

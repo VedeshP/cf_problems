@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -47,9 +46,30 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
+bool myispow2(ll n)
+{
+    return n != 0 && (n & (n - 1)) == 0;
+}
+
 void solve()
 {
+    int n; cin >> n;
+    vll vt(n);
+    fr (i, 0, n) cin >> vt[i];
 
+    fr (i, 0, n - 1)
+    {
+        if (vt[i] > vt[i + 1])
+        {
+            if (!myispow2(i + 1))
+            {
+                out_NO
+                return;
+            }
+        }
+    }
+    out_YES
+    return;
 }
 
 int main(void)

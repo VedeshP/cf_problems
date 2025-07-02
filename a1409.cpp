@@ -30,7 +30,6 @@
 #include <string>
 #include <limits.h>
 #include <cmath>
-#include <cctype>
 #include <map>
 #include <set>
 
@@ -49,7 +48,30 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll a, b; cin >> a >> b;
+    ll achieve = abs(b - a);
 
+    // int arr[] = {10, 9, 8 ,7, 6, 5, 4, 3, 2, 1};
+    int div = 10;
+    ll ans = 0;
+    while (achieve > 0)
+    {
+        if ((achieve / div) > 0)
+        {
+            ans += achieve / div;
+            achieve -= (achieve / div) * div;
+        }
+        else
+        {
+            div--;
+        }
+        if (achieve == 0)
+        {
+            break;
+        }
+    }
+
+    cout << ans << '\n';
 }
 
 int main(void)
