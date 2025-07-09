@@ -49,28 +49,17 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll x, y, k; cin >> x >> y >> k;
-    if (k % 2 == 0)
-    {        
-        ll i = 1;
-        while (i < k + 1)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
-    }
-    else 
-    {
-        ll i = 1;
-        cout << x << ' ' << y << '\n';
-        while (i < k)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
-    }
+    ll n, px, py, qx, qy; cin >> n >> px >> py >> qx >> qy;
+    vll vt(n);
+    fr (i, 0, n) cin >> vt[i];
+    ll dist = (qx - px) * (qx - px) + (qy - py) * (qy - py);
+    ll mxr = accumulate(vt.begin(), vt.end(), 0);
+    ll longest = *max_element(vt.begin(), vt.end());
+    ll other = mxr - longest;
+    ll mnr = max(0ll, longest - other);
+
+    if (mnr * mnr <= dist && dist <= mxr * mxr) out_YES
+    else out_NO
 }
 
 int main(void)

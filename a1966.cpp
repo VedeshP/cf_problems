@@ -49,28 +49,24 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll x, y, k; cin >> x >> y >> k;
-    if (k % 2 == 0)
-    {        
-        ll i = 1;
-        while (i < k + 1)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
-    }
-    else 
+    ll n, k; cin >> n >> k;
+    vll vt(n);
+    map<ll , ll> mp;
+    fr (i, 0, n) 
     {
-        ll i = 1;
-        cout << x << ' ' << y << '\n';
-        while (i < k)
+        cin >> vt[i];
+        mp[vt[i]]++;
+    }
+    for (auto it : mp)
+    {
+        if (it.S >= k)
         {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
+            cout << k - 1 << '\n';
+            return;
         }
     }
+    cout << vt.size() << '\n';
+    return;
 }
 
 int main(void)

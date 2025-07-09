@@ -47,30 +47,21 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
+// bool mycomp(ll& a, ll& b)
+// {
+//     return 
+// }
 void solve()
 {
-    ll x, y, k; cin >> x >> y >> k;
-    if (k % 2 == 0)
-    {        
-        ll i = 1;
-        while (i < k + 1)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
-    }
-    else 
+    ll n; cin >> n; vll vt(n);
+    fr (i, 0, n) 
     {
-        ll i = 1;
-        cout << x << ' ' << y << '\n';
-        while (i < k)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
+        cin >> vt[i];
+        // vt[i] += i + 1;
     }
+    // sort(vt.begin(), vt.end(), );
+    ll maxi = *max_element(vt.begin(), vt.end() - 1);
+    cout << maxi + vt[n - 1] << '\n';
 }
 
 int main(void)

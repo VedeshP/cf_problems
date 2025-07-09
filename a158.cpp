@@ -49,28 +49,22 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll x, y, k; cin >> x >> y >> k;
-    if (k % 2 == 0)
-    {        
-        ll i = 1;
-        while (i < k + 1)
-        {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
-        }
-    }
-    else 
+    ll n, k; cin >> n >> k; vll vt(n); ll score;
+    fr (i, 0, n) 
     {
-        ll i = 1;
-        cout << x << ' ' << y << '\n';
-        while (i < k)
+        cin >> vt[i];
+        if (i + 1 == k)
         {
-            if (i % 2) cout << x << ' ' << y - i << '\n';
-            else cout << x << ' ' << y + i - 1 << '\n';
-            i++;
+            score = vt[i];
         }
     }
+    sort(vt.begin(), vt.end());
+    ll ans = 0;
+    fr (i, 0, n)
+    {
+        if (vt[i] > 0 && vt[i] >= score) ans++;
+    }
+    cout << ans << '\n';
 }
 
 int main(void)
@@ -78,10 +72,10 @@ int main(void)
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }
