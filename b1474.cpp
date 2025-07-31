@@ -47,34 +47,35 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
-void solve()
+bool is_prime(ll n)
 {
-    // dynamic programming man - i want to master this 
-    string a, b; cin >> a >> b;
-    ll m = a.size(), n = b.size();
-    vector<vector<ll>> dp(m + 1, vector<ll>(n + 1, 0));
-    ll ans = 0;
-    fr (i, 1, m + 1)
+    for (ll i = 2; i * i <= n; i++)
     {
-        fr (j, 1, n + 1)
+        if (n % i == 0)
         {
-            if (a[i - 1] == b[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
-                ans = max(ans, dp[i][j]);
-            }
-            else 
-            {
-                // dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = 0;
-            }
-
-            // ans = max(ans, dp[i][j]);
+            return false;
         }
     }
-    // brute force is good - but i want to learn dp
-    cout << (m + n) - (2 * ans) << '\n';
 
+    return true;
+}
+
+void solve()
+{
+    ll d; cin >> d;
+
+    // if N = p1 ^ a * p2 ^ b * p3 ^ c
+    // then number of divisors of N = (a + 1) * (b + 1) * (c + 1)
+
+
+    ll x, y;
+    x = 1 + d;
+    while (!is_prime(x)) ++x;
+    y = x + d;
+    // cout << 'f' << '\n';
+    while (!is_prime(y)) ++y;
+
+    cout << min((1LL * x * y), (1LL * x*x*x)) << '\n';
 }
 
 int main(void)

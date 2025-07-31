@@ -49,31 +49,43 @@ int lcm(int a,int b)
 
 void solve()
 {
-    // dynamic programming man - i want to master this 
-    string a, b; cin >> a >> b;
-    ll m = a.size(), n = b.size();
-    vector<vector<ll>> dp(m + 1, vector<ll>(n + 1, 0));
-    ll ans = 0;
-    fr (i, 1, m + 1)
+    ll n, s; cin >> n >> s;
+    vi vt(n); fr (i, 0, n) cin >> vt[i];
+    ll sum = accumulate(vt.begin(), vt.end(), 0);
+    if (sum > s) 
     {
-        fr (j, 1, n + 1)
-        {
-            if (a[i - 1] == b[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
-                ans = max(ans, dp[i][j]);
-            }
-            else 
-            {
-                // dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = 0;
-            }
-
-            // ans = max(ans, dp[i][j]);
-        }
+        fr (i, 0, n) cout << vt[i] << ' ';
+        cout << '\n';
+        return;
     }
-    // brute force is good - but i want to learn dp
-    cout << (m + n) - (2 * ans) << '\n';
+    if (sum + 1 == s)
+    {
+        sort(vt.begin(), vt.end());
+        fr (i, 0, n)
+        {
+            if (vt[i] == 1)
+            {
+                swap(vt[i], vt[n - 1]);
+            }
+            if (vt[i] == 2)
+            {
+                swap(vt[i], vt[n - 2]);
+            }
+        }
+        fr (i, 0, n) cout << vt[i] << ' ';
+        cout << '\n';
+        return;
+    }
+    if (s > sum)
+    {
+        // fr (i, 0, n) cout << vt[i] << ' ';
+        // cout << '\n';
+        // return;
+        cout << -1 << '\n';
+        return;
+    }
+    cout << -1 << '\n'; 
+    return;
 
 }
 

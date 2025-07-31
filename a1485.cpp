@@ -49,32 +49,50 @@ int lcm(int a,int b)
 
 void solve()
 {
-    // dynamic programming man - i want to master this 
-    string a, b; cin >> a >> b;
-    ll m = a.size(), n = b.size();
-    vector<vector<ll>> dp(m + 1, vector<ll>(n + 1, 0));
-    ll ans = 0;
-    fr (i, 1, m + 1)
+    ll a, b; cin >> a >> b;
+    if (!a)
     {
-        fr (j, 1, n + 1)
-        {
-            if (a[i - 1] == b[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
-                ans = max(ans, dp[i][j]);
-            }
-            else 
-            {
-                // dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = 0;
-            }
-
-            // ans = max(ans, dp[i][j]);
-        }
+        
+        cout << 0 << '\n';
+        return;
+        
     }
-    // brute force is good - but i want to learn dp
-    cout << (m + n) - (2 * ans) << '\n';
-
+    if (a < b) 
+    {
+        cout << 1 << '\n';
+        return;
+    }
+    if (a == b)
+    {
+        cout << 2 << '\n';
+        return;
+    }
+    ll ans = INT_MAX;
+    fr (i, 0, 32)
+    {
+        ll op = i;
+        ll bd = b + i;
+        if (bd == 1) continue;
+        ll ad = a;
+        while (ad > 0)
+        {
+            ad /= bd;
+            op++;
+        }
+        ans = min(ans, op);
+    }
+    cout << ans << '\n';
+    // ll ans = 0;
+    // if (b == 1) 
+    // {
+    //     b++; ans++;
+    // }
+    // ll prevans = 1;
+    // ll i = 1;
+    // while (a / pow(b, i) > 0)
+    // {
+    //     prevans++;
+    // }
 }
 
 int main(void)

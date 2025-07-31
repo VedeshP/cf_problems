@@ -49,32 +49,21 @@ int lcm(int a,int b)
 
 void solve()
 {
-    // dynamic programming man - i want to master this 
-    string a, b; cin >> a >> b;
-    ll m = a.size(), n = b.size();
-    vector<vector<ll>> dp(m + 1, vector<ll>(n + 1, 0));
-    ll ans = 0;
-    fr (i, 1, m + 1)
+    ll a, b, k; cin >> a >> b >> k;
+    // cout << gcd(a,b) << ' ';
+    int div = gcd(a, b);
+    a /= div; b /= div;
+    // cout << a << " " << b;
+    if (a > k || b > k)
     {
-        fr (j, 1, n + 1)
-        {
-            if (a[i - 1] == b[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
-                ans = max(ans, dp[i][j]);
-            }
-            else 
-            {
-                // dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = 0;
-            }
-
-            // ans = max(ans, dp[i][j]);
-        }
+        // if (a % 2 == 0 && b % 2 == 0 && a / 2 < k && b / 2 < k)
+        // {
+        //     cout << 1 << '\n';
+        //     return;
+        // }
+        cout << 2 << '\n';
     }
-    // brute force is good - but i want to learn dp
-    cout << (m + n) - (2 * ans) << '\n';
-
+    else cout << 1 << '\n';
 }
 
 int main(void)
