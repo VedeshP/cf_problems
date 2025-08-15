@@ -8,9 +8,6 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define sz(x) (ll)(x).size()
-#define srt(a) sort((a).begin(),(a).end())
-ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
@@ -52,7 +49,22 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >>n;
+    fr (i, 0, n - 1) 
+    {
+        if ( i % 2) 
+        {
+            if (n == 2)
+            {
+                cout << 2 << ' ';
+            }
+            else cout << 3 << ' ';
+        }
+        else cout << -1 << ' ';
+    }
+    if (n % 2) cout << -1 << ' ';
+    else cout << 2 << ' ';
+    cout << '\n';
 }
 
 int main(void)

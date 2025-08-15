@@ -52,7 +52,9 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin >> n;
+    cout << ((n - 3) / 3) - 1 << '\n';
+    return;
 }
 
 int main(void)

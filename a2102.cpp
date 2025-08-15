@@ -8,9 +8,6 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define sz(x) (ll)(x).size()
-#define srt(a) sort((a).begin(),(a).end())
-ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
@@ -52,7 +49,9 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n, m, p, q; cin >> n >>  m >>  p >> q;
+    if (n % p == 0 && (n /p) * q != m)out_NO
+    else out_YES
 }
 
 int main(void)

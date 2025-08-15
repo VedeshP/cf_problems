@@ -8,9 +8,6 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define sz(x) (ll)(x).size()
-#define srt(a) sort((a).begin(),(a).end())
-ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
@@ -52,7 +49,29 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, k; cin >>n>> k;
+    multiset<ll> s, t;
+    fr (i, 0, n)
+    {
+        ll x; cin >> x;
+        s.insert(x);
+    }
+    fr (i, 0, n)
+    {
+        ll x; cin >> x;
+        t.insert(x);
+    }
 
+    bool exist = true;
+    for (auto it : s)
+    {
+        
+        // if (t.find(it + k) != t.end()) continue;
+        // if (t.find(abs(it - k)) != t.end()) continue;
+        // out_NO
+        // return;
+    }
+    out_YES
 }
 
 int main(void)

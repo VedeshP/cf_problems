@@ -52,7 +52,20 @@ int lcm(int a,int b)
 
 void solve()
 {
+    // resubmitting for themecp
+    ll n; cin >> n;
+    vll vt(n); fr (i, 0, n) cin >> vt[i];
 
+    fr (i, 0, n - 1) 
+    {
+        if (abs(vt[i] - vt[i+1]) == 5 || abs(vt[i] - vt[i+1]) == 7) continue;
+        else {
+            out_NO
+            return;
+        }
+    }
+    out_YES
+    return;
 }
 
 int main(void)

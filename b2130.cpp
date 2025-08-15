@@ -52,39 +52,74 @@ void solve()
     ll n, s; cin >> n >> s;
     vi vt(n); fr (i, 0, n) cin >> vt[i];
     ll sum = accumulate(vt.begin(), vt.end(), 0);
-    if (sum > s) 
+    // if ( n == 3 && s <= 4)
+    // {
+    //     cout << -1 << '\n';
+    //     return;
+    // }
+    if (s >= sum)
     {
-        fr (i, 0, n) cout << vt[i] << ' ';
-        cout << '\n';
-        return;
+if(sum+1==s){
+    sort(vt.begin(),vt.end());
+    int count=0;
+    for(int i=0;i<n;i++){
+        if(!vt[i])count++;
+        else cout<<vt[i]<<" ";
     }
-    if (sum + 1 == s)
-    {
-        sort(vt.begin(), vt.end());
-        fr (i, 0, n)
-        {
-            if (vt[i] == 1)
-            {
-                swap(vt[i], vt[n - 1]);
-            }
-            if (vt[i] == 2)
-            {
-                swap(vt[i], vt[n - 2]);
-            }
-        }
-        fr (i, 0, n) cout << vt[i] << ' ';
-        cout << '\n';
-        return;
+    while(count--){
+        cout<<0<<" ";
     }
-    if (s > sum)
-    {
-        // fr (i, 0, n) cout << vt[i] << ' ';
-        // cout << '\n';
-        // return;
+    cout<<endl;
+    return;
+}
+
         cout << -1 << '\n';
+    }
+    else{
+    //     if ( n == 3 && s <= 4)
+    // {
+    //     cout << -1 << '\n';
+    //     return;
+    // }
+        sort(vt.rbegin(), vt.rend());
+            fr (i, 0, n) cout << vt[i] << ' ';
+        cout << '\n';
         return;
     }
-    cout << -1 << '\n'; 
+
+    // if (sum > s) 
+    // {
+    //     fr (i, 0, n) cout << vt[i] << ' ';
+    //     cout << '\n';
+    //     return;
+    // }
+    // if (sum + 1 == s)
+    // {
+    //     sort(vt.begin(), vt.end());
+    //     fr (i, 0, n)
+    //     {
+    //         if (vt[i] == 1)
+    //         {
+    //             swap(vt[i], vt[n - 1]);
+    //         }
+    //         if (vt[i] == 2)
+    //         {
+    //             swap(vt[i], vt[n - 2]);
+    //         }
+    //     }
+    //     fr (i, 0, n) cout << vt[i] << ' ';
+    //     cout << '\n';
+    //     return;
+    // }
+    // if (s > sum)
+    // {
+    //     // fr (i, 0, n) cout << vt[i] << ' ';
+    //     // cout << '\n';
+    //     // return;
+    //     cout << -1 << '\n';
+    //     return;
+    // }
+    // cout << -1 << '\n'; 
     return;
 
 }

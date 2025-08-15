@@ -8,9 +8,6 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define sz(x) (ll)(x).size()
-#define srt(a) sort((a).begin(),(a).end())
-ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
@@ -52,7 +49,21 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll x, y, k; cin >> x >> y>> k;
+    ll stick = 1, coal = 0, torch = 0;
+    
+    // coal must be >= k and so should stick
+    // you need k trade offers for sure - so you should have stick >= k * y
+    // x - 1, x - 1 ... you add to get the sticks 
+    ll ans = 0;
+    // while (stick < (k * y + k))
+    // {
+    //     ans++;
+    //     stick += x - 1;
+    // }
+    ans = ((k * y + k - 1 + x - 2) / (x - 1));
+    ans += k;
+    cout << ans << '\n';
 }
 
 int main(void)

@@ -52,7 +52,12 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n; cin >> n;
+    ll mul = 1;
+    vll vt(n); fr (i,0,n) 
+    {cin >> vt[i];mul *= vt[i];}
 
+    cout << 2022 * (mul + n - 1) << '\n';
 }
 
 int main(void)

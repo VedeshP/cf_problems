@@ -50,9 +50,31 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
+int is_fair(ll num)
+{
+    
+    string n = to_string(num);
+    // cout << sz(n) << ' ';
+    fr (i, 0, sz(n))
+    {
+        if ((n[i] - '0') == 0) continue;
+        if (num % (n[i] - '0') == 0) continue;
+        else return 0;
+    }
+    return 1;
+}
+
 void solve()
 {
-
+    // 4,7,8
+    // writing brute force solution for this one
+    ll n; cin >> n;
+    while (!is_fair(n))
+    {
+        n++;
+    }
+    cout << n << '\n';
+    return;
 }
 
 int main(void)
