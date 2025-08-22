@@ -1,5 +1,5 @@
 #define ll long long
-#define pii pair<int,int>
+#define pii pair<int, int>
 #define pll pair<ll, ll>
 #define vi vector<int>
 #define vll vector<ll>
@@ -9,12 +9,8 @@
 #define PB push_back
 #define MP make_pair
 #define sz(x) (ll)(x).size()
-#define srt(a) sort((a).begin(),(a).end())
-#define revsrt(a) sort((a).rbegin(), (a).rend())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define setbits(x) __builtin_popcountll(x)
-ll MOD=1000000007;
+#define srt(a) sort((a).begin(), (a).end())
+ll MOD = 1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
@@ -43,31 +39,45 @@ ll MOD=1000000007;
 
 using namespace std;
 
-int gcd(int a,int b)
+int gcd(int a, int b)
 {
-    if(b == 0) return a;
-    else return gcd(b, a % b);
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
-int lcm(int a,int b)
+int lcm(int a, int b)
 {
     return a * b / gcd(a, b);
 }
 
 void solve()
 {
-
+    ll n; cin >> n;
+    string s; cin >> s;
+    // ll x = -1;
+    fr (i, 0, n - 1)
+    {
+        if (s[i] > s[i + 1])
+        {
+            out_YES
+            cout << i + 1 << ' ' << i + 2 << '\n';
+            return;
+        }
+    }
+    out_NO
 }
 
 int main(void)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
+
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++)
+    // {
         solve();
-    }
+    // }
 }

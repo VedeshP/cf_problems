@@ -10,10 +10,6 @@
 #define MP make_pair
 #define sz(x) (ll)(x).size()
 #define srt(a) sort((a).begin(),(a).end())
-#define revsrt(a) sort((a).rbegin(), (a).rend())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define setbits(x) __builtin_popcountll(x)
 ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
@@ -56,7 +52,11 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n; cin>>n;
+    vll vt(n); fr (i,0,n) cin>>vt[i];
+    sort(vt.rbegin(), vt.rend());
+    fr (i,0,n) cout << vt[i] << ' ';
+    cout<<'\n';
 }
 
 int main(void)

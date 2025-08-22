@@ -10,10 +10,6 @@
 #define MP make_pair
 #define sz(x) (ll)(x).size()
 #define srt(a) sort((a).begin(),(a).end())
-#define revsrt(a) sort((a).rbegin(), (a).rend())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define setbits(x) __builtin_popcountll(x)
 ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
@@ -56,7 +52,54 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n; cin>> n;
+    string s; cin>>s;
+    set<string> st;
+    fr (i, 0, n)
+    {
+        string x = s.substr(i, n - i);
+        st.insert(x);
+        // fr (i, 0, sz(x))
+        // cout << x << ' ';
+    }
+    // fr (i, 0, n)
+    // {
+    //     string x = s.substr(i, n - i);
+    //     st.insert(x);
+    //     // cout << x << ' ';
+    //     if (i + 1 < n)
+    //     {
+    //         string y = s.substr(i, 1) + s.substr(i + 2, n - i - 2);
+    //         st.insert(y);
+    //         // cout << y << ' ';
+    //     }
+        
+    // }
+    // cout << sz(st) << '\n';
+    // fr (i, 0, n)
+    // {
+    //     string x = s.substr(i, n - i);
+    //     // cout << x << ' ';
+    //     if (st.find(x) == st.end())
+    //     {
+    //         st.insert(x); 
+    //         // continue;
+    //     }
+    //     // else 
+    //     // {
+    //         if (i + 2 < n)
+    //         {
+    //             string y = s.substr(i, 1) + s.substr(i + 2, n-i-2);
+    //             if (st.find(y) == st.end())
+    //             {
+    //                 st.insert(y); continue;
+    //             }
+    //         }
+            
+    //     // }
+    // }
 
+    // cout << sz(st) << '\n';
 }
 
 int main(void)

@@ -10,10 +10,6 @@
 #define MP make_pair
 #define sz(x) (ll)(x).size()
 #define srt(a) sort((a).begin(),(a).end())
-#define revsrt(a) sort((a).rbegin(), (a).rend())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define setbits(x) __builtin_popcountll(x)
 ll MOD=1000000007;
 
 #define fr(i, a, b) for (ll i = a; i < b; i++)
@@ -56,7 +52,39 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, k; cin >> n >> k;
+    vll a(n), b(n);
+    fr (i,0,n) cin >> a[i];
+    fr (i,0,n) cin >> b[i];
+    // vector<pll> vt(n); 
+    // fr (i, 0, n) cin >> vt[i].F;
+    // fr (i,0,n) cin >> vt[i].S;
 
+    ll ans = 0;
+    ll sum = 0, mx = 0;
+    fr (i, 0, min(n, k))
+    {
+        sum += a[i];
+        mx = max(mx, b[i]);
+        ans = max(ans, sum + mx * (k - i - 1));
+    }
+
+    cout << ans << '\n';
+
+    //  above sol- first complete the quest for the first time at least once but until you don't exhaust k
+    // and chose b in such a way that you chose the max b k - i times - so you check both a and b in every iteration
+
+    // the below solution cannot work - because 2 has to come after 1 is done atleast once 
+
+    // sort(vt.begin(), vt.end());
+    // ll ans = 0;
+    // fr (i, 0, k)
+    // {
+    //     ans += vt[n - 1].F;
+    //     vt[n - 1].F = vt[n - 1].S;
+    //     sort(vt.begin(), vt.end());
+    // }
+    // cout << ans << '\n';
 }
 
 int main(void)
