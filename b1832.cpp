@@ -59,7 +59,27 @@ int lcm(int a,int b)
 
 void solve()
 {
-
+    ll n, k; cin >> n >> k;
+    vll vt(n); inp(vt, n);
+    srt(vt);
+    vll pre(n + 1, 0);
+    fr (i, 0, n) 
+    {
+        pre[i + 1] = pre[i] + vt[i];
+    }
+    ll ans = 0;
+    fr (i, 0, k + 1)
+    {
+        ans = max(ans, pre[n - (k - i)] - pre[2 * i]);
+    }
+    cout << ans << '\n';
+    // ll l = 0, r = n - 1;
+    // while (k--)
+    // {
+    //     if ((vt[l] + vt[l + 1]) > vt[r]) r--;
+    //     else l += 2;
+    // }
+    // cout << accumulate(vt.begin() + l, vt.begin() + r, 0) << '\n';
 }
 
 int main(void)

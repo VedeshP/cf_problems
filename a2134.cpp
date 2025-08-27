@@ -19,9 +19,6 @@ ll MOD=1000000007;
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
 
-#define inp(a, n) fr(i, 0, n) cin >> a[i];
-#define outp(a, n) fr(i, 0, n) { cout << a[i] << ' '; } cout << '\n';
-
 #define out_NO cout << "NO" << '\n';
 #define out_YES cout << "YES" << '\n';
 
@@ -59,7 +56,25 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, a, b; cin >> n >> a >> b;
 
+    if (a % 2 == n % 2)
+    {
+        if (b % 2 == n % 2) out_YES
+        else out_NO
+    }
+    else 
+    {
+        if (b % 2 == n % 2 && b > a) out_YES
+        else out_NO
+    }
+    // if (a == b && b % 2 == n % 2) 
+    // {
+    //     out_YES
+    //     return;
+    // }
+    // if (n % 2 == abs(a - b) % 2) out_NO
+    // else out_YES
 }
 
 int main(void)

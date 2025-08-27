@@ -59,6 +59,23 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, x, a; cin >> n >> x;
+    ll k = 0;
+    fr (i, 0, 3)
+    {
+        ll flg = 1;
+        fr (j, 0, n)
+        {
+            cin >> a;   
+            if (flg)
+            {
+                if ((a | x) > x) {flg = 0; continue;}
+                k |= a;
+            }
+        }
+    }
+    if (k == x) out_YES
+    else out_NO
 
 }
 

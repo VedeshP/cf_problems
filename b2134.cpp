@@ -57,9 +57,35 @@ int lcm(int a,int b)
     return a * b / gcd(a, b);
 }
 
+// bool divisible(vll& vt)
+// {
+//     ll mn = *min_element(all(vt));
+//     fr (i, 0, sz(vt))
+//     {
+        
+//     }
+// }
+
 void solve()
 {
+    ll n, k; cin >> n >> k;
+    // vll vt(n); fr (i, 0, n) cin >> vt[i];
+    vll vt(n); inp(vt, n);
+    // outp(vt, n);
+    // cout << '\n';
+    // macros workign well - lets go
+    fr (i, 0, n) 
+    {
+        vt[i] += (vt[i] % (k + 1)) * k;
+    }
+    outp(vt, n);
 
+    
+
+    // while(!divisible(&vt))
+    // {
+
+    // }
 }
 
 int main(void)

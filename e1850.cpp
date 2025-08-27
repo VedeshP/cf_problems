@@ -19,9 +19,6 @@ ll MOD=1000000007;
 #define fr(i, a, b) for (ll i = a; i < b; i++)
 #define _fr(i, a, b) for (ll i = a; i > b; i--)
 
-#define inp(a, n) fr(i, 0, n) cin >> a[i];
-#define outp(a, n) fr(i, 0, n) { cout << a[i] << ' '; } cout << '\n';
-
 #define out_NO cout << "NO" << '\n';
 #define out_YES cout << "YES" << '\n';
 
@@ -59,7 +56,40 @@ int lcm(int a,int b)
 
 void solve()
 {
+    ll n, c; cin >> n >> c;
+    vll vt(n); fr (i, 0, n) cin >> vt[i];
 
+    // ll l = 0, r = LLONG_MAX / 2, ans = r;
+    ll l = 1, r = 1e9, ans = r;
+    // i dont know but this only works with r = 1e9
+    while (l <= r)
+    {
+        ll sum = 0;
+        // ll mid = (l + r) / 2;
+        ll m = l + (r - l) / 2;
+        // the above line is to specifically avoid overflow
+        fr (i, 0, n)
+        {
+            sum += ((vt[i] + 2 * m) * (vt[i] + 2 * m));
+            if (sum > c) break;
+        }
+        if (sum < c)
+        {
+            l = m + 1;
+        }
+        else if (sum == c)
+        {
+            cout << m << '\n';  return;
+            // cout << "huha";
+        }
+        else 
+        {
+            // ans = m;
+            r = m - 1;
+        }
+    }
+    // cout << l << '\n';
+    return;
 }
 
 int main(void)
