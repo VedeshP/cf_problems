@@ -59,71 +59,62 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll n, k; cin >> n >> k;
-    vll c(n); inp(c, n);
+    ll n; cin >> n;
+    vll a(n); inp(a, n);
 
-    // what if we take distance and find the min with bs ?
-    // vll color(k + 1, -1);
-    // vll last(k + 1);
-    // fr (i, 0, n)
-    // {
-    //     if (color[c[i]] == -1)
-    //     {
-    //         color[c[i]] = i;
-    //     }
-    //     else 
-    //     {
-    //         color[c[i]] = max(color[c[i]], i - last[c[i]] - 1);
-    //     }
-    //     last[c[i]] = i;
-    // }
-    // outp(color, k + 1);
-    // fr (i, 1, k + 1)
-    // {
-    //     color[i] = max(n - last[i] - 1, color[i]);
-    // }
-
-    // going almost in the right direction
-    vll last(k, -1);
-    vll mx_s(k), mx2(k);
-
-    // using 0 based indexing now
-    fr(i, 0, n)
+    vll ev;
+    ll odmax = -1;
+    ll cntod = 0;
+    fr (i, 0, n)
     {
-        ll step = i - last[c[i] - 1];
-        if (step > mx_s[c[i] - 1])
+        if (a[i] % 2 == 0)
         {
-            mx2[c[i] - 1] = mx_s[c[i] - 1];
-            mx_s[c[i] - 1] = step;
+            ev.PB(a[i]);
         }
-        else if (step > mx2[c[i] - 1])
+        else 
         {
-            mx2[c[i] - 1] = step;
-        }
-        last[c[i] - 1] = i;
-    }
-
-    // exactly what we were doing but we missed one last thing
-    fr (i, 0, k)
-    {
-        ll step = n - last[i];
-        if (step > mx_s[i]) 
-        {
-            mx2[i] = mx_s[i];
-            mx_s[i] = step;
-        } 
-        else if (step > mx2[i]) 
-        {
-            mx2[i] = step;
+            odmax = max(odmax, a[i]);
+            cntod++;
         }
     }
-    ll ans = INT_MAX;
-    fr (i, 0, k)
+    revsrt(ev);
+    vll preev(n + 1, 0);
+    preev[0] = 0;
+    fr(i, 1, sz(ev) + 1)
     {
-        ans = min(ans, max((mx_s[i]  +1 )/2, mx2[i]));
+        preev[i] = preev[i - 1] + ev[i - 1];
     }
-    cout << ans - 1 << '\n';
 
+    if (cntod == 0)
+    {
+        fr (k, 1, n + 1)
+        {
+            cout << 0 << ' ';
+        }
+        cout << '\n';
+        return;
+    }
+    fr (k, 1, n + 1)
+    {
+        ll evtake = min(k - 1, sz(ev));
+        ll left = k - 1 - evtake;
+
+        if (left % 2 != 0)
+        {
+            evtake--;
+            left++;
+        }
+
+        if (evtake >= 0 && left <= cntod - 1)
+        {
+            cout << odmax + preev[evtake] << ' ';
+        }
+        else 
+        {
+            cout << 0 << ' ';
+        }
+    }
+    cout << '\n';
 }
 
 int main(void)

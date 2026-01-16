@@ -60,70 +60,38 @@ int lcm(int a,int b)
 void solve()
 {
     ll n, k; cin >> n >> k;
-    vll c(n); inp(c, n);
-
-    // what if we take distance and find the min with bs ?
-    // vll color(k + 1, -1);
-    // vll last(k + 1);
-    // fr (i, 0, n)
-    // {
-    //     if (color[c[i]] == -1)
-    //     {
-    //         color[c[i]] = i;
-    //     }
-    //     else 
-    //     {
-    //         color[c[i]] = max(color[c[i]], i - last[c[i]] - 1);
-    //     }
-    //     last[c[i]] = i;
-    // }
-    // outp(color, k + 1);
-    // fr (i, 1, k + 1)
-    // {
-    //     color[i] = max(n - last[i] - 1, color[i]);
-    // }
-
-    // going almost in the right direction
-    vll last(k, -1);
-    vll mx_s(k), mx2(k);
-
-    // using 0 based indexing now
-    fr(i, 0, n)
+    if (k > n)
     {
-        ll step = i - last[c[i] - 1];
-        if (step > mx_s[c[i] - 1])
-        {
-            mx2[c[i] - 1] = mx_s[c[i] - 1];
-            mx_s[c[i] - 1] = step;
-        }
-        else if (step > mx2[c[i] - 1])
-        {
-            mx2[c[i] - 1] = step;
-        }
-        last[c[i] - 1] = i;
+        cout << -1 << 
+    '\n';
+    return;
     }
-
-    // exactly what we were doing but we missed one last thing
-    fr (i, 0, k)
+    // ll o = n / 2, t = ceil((n * 1.0) / 2);
+    fr (i, 0, 50)
     {
-        ll step = n - last[i];
-        if (step > mx_s[i]) 
-        {
-            mx2[i] = mx_s[i];
-            mx_s[i] = step;
-        } 
-        else if (step > mx2[i]) 
-        {
-            mx2[i] = step;
-        }
-    }
-    ll ans = INT_MAX;
-    fr (i, 0, k)
-    {
-        ans = min(ans, max((mx_s[i]  +1 )/2, mx2[i]));
-    }
-    cout << ans - 1 << '\n';
+        // for 2 rasied to
+        ll p = 1ll << i; 
+        ll o = n / p;
 
+        if (o == k)
+        {
+            cout << i << '\n';
+            return;
+        }
+        bool flag = (n % p != 0);
+        if (flag)
+        {
+            ll t = o + 1;
+            if (t == k)
+            {
+                cout << i << '\n';
+                return;
+            }
+        }
+        if (p > n) break;
+    }
+    cout << -1 << '\n';
+    // while ()
 }
 
 int main(void)

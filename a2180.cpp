@@ -59,71 +59,18 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll n, k; cin >> n >> k;
-    vll c(n); inp(c, n);
-
-    // what if we take distance and find the min with bs ?
-    // vll color(k + 1, -1);
-    // vll last(k + 1);
-    // fr (i, 0, n)
+    ll l, a, b; cin >> l >> a >>b;
+    ll ans = 0;
+    ll hcf = gcd(b, l), mod = a % hcf;
+    ll by = (l - mod - 1) / hcf;
+    ans = mod + hcf * by;
+    // ll x = (a + b) % l;
+    // while (x != a)
     // {
-    //     if (color[c[i]] == -1)
-    //     {
-    //         color[c[i]] = i;
-    //     }
-    //     else 
-    //     {
-    //         color[c[i]] = max(color[c[i]], i - last[c[i]] - 1);
-    //     }
-    //     last[c[i]] = i;
+    //     ans = max(ans, x);
+    //     x = (x + b) % l;
     // }
-    // outp(color, k + 1);
-    // fr (i, 1, k + 1)
-    // {
-    //     color[i] = max(n - last[i] - 1, color[i]);
-    // }
-
-    // going almost in the right direction
-    vll last(k, -1);
-    vll mx_s(k), mx2(k);
-
-    // using 0 based indexing now
-    fr(i, 0, n)
-    {
-        ll step = i - last[c[i] - 1];
-        if (step > mx_s[c[i] - 1])
-        {
-            mx2[c[i] - 1] = mx_s[c[i] - 1];
-            mx_s[c[i] - 1] = step;
-        }
-        else if (step > mx2[c[i] - 1])
-        {
-            mx2[c[i] - 1] = step;
-        }
-        last[c[i] - 1] = i;
-    }
-
-    // exactly what we were doing but we missed one last thing
-    fr (i, 0, k)
-    {
-        ll step = n - last[i];
-        if (step > mx_s[i]) 
-        {
-            mx2[i] = mx_s[i];
-            mx_s[i] = step;
-        } 
-        else if (step > mx2[i]) 
-        {
-            mx2[i] = step;
-        }
-    }
-    ll ans = INT_MAX;
-    fr (i, 0, k)
-    {
-        ans = min(ans, max((mx_s[i]  +1 )/2, mx2[i]));
-    }
-    cout << ans - 1 << '\n';
-
+    cout << ans << '\n';
 }
 
 int main(void)

@@ -59,71 +59,95 @@ int lcm(int a,int b)
 
 void solve()
 {
-    ll n, k; cin >> n >> k;
-    vll c(n); inp(c, n);
+    ll n; cin >> n;
+    vll a(n); inp(a, n);
 
-    // what if we take distance and find the min with bs ?
-    // vll color(k + 1, -1);
-    // vll last(k + 1);
+
+    // since it is a permutation - it changes a lot of things 
+
+    ll l = 0, r = n - 1;
+    ll mn = 1, mx = n;
+
+    while (l <= r)
+    {
+        if (a[l] == mn)
+        {
+            l++;
+            mn++;
+        }
+        else if (a[l] == mx)
+        {
+            l++;
+            mx--;
+        }
+        else if (a[r] == mn)
+        {
+            r--;
+            mn++;
+        }
+        else if (a[r] == mx)
+        {
+            r--;
+            mx--;
+        }
+        else break;
+    }
+    if (l <= r)
+    {
+        cout << l + 1 << ' ' << r + 1 << '\n';
+    }
+    else cout << -1 << '\n';
+
+    // if (n < 4)
+    // {
+    //     cout << -1 << '\n';
+    //     return;
+    // }
+
+    // vll pmx(n, 0);
+    // vll pmn(n, 0);
+
+    // pmx[0] = a[0];
+    // pmn[0] = a[0];
+    // fr (i, 1, n)
+    // {
+    //     pmx[i] = max(a[i], pmx[i - 1]);
+    //     pmn[i] = min(a[i], pmn[i - 1]);
+    // }
+
+    // vll smx(n, 0), smn(n, 0);
+    // smn[n - 1] = a[n- 1];
+    // smx[n - 1] = a[n - 1];
+
+    // _fr(i, n, -1)
+    // {
+    //     smx[i] = max(a[i], smx[i + 1]);
+    //     smn[i] = min(a[i], smn[i + 1]);
+    // }
+
+    // ll l = -1, r = -1;
     // fr (i, 0, n)
     // {
-    //     if (color[c[i]] == -1)
+    //     if (a[i] != pmn[i] && a[i] != pmx[i])
     //     {
-    //         color[c[i]] = i;
+    //         l = i;
+    //         break;
     //     }
-    //     else 
-    //     {
-    //         color[c[i]] = max(color[c[i]], i - last[c[i]] - 1);
-    //     }
-    //     last[c[i]] = i;
     // }
-    // outp(color, k + 1);
-    // fr (i, 1, k + 1)
+    // fr (i, l + 1, n)
     // {
-    //     color[i] = max(n - last[i] - 1, color[i]);
+    //     if (a[i] != pmn[i] && a[i] != pmx[i])
+    //     {
+    //         r = i;
+    //         break;
+    //     }
     // }
-
-    // going almost in the right direction
-    vll last(k, -1);
-    vll mx_s(k), mx2(k);
-
-    // using 0 based indexing now
-    fr(i, 0, n)
-    {
-        ll step = i - last[c[i] - 1];
-        if (step > mx_s[c[i] - 1])
-        {
-            mx2[c[i] - 1] = mx_s[c[i] - 1];
-            mx_s[c[i] - 1] = step;
-        }
-        else if (step > mx2[c[i] - 1])
-        {
-            mx2[c[i] - 1] = step;
-        }
-        last[c[i] - 1] = i;
-    }
-
-    // exactly what we were doing but we missed one last thing
-    fr (i, 0, k)
-    {
-        ll step = n - last[i];
-        if (step > mx_s[i]) 
-        {
-            mx2[i] = mx_s[i];
-            mx_s[i] = step;
-        } 
-        else if (step > mx2[i]) 
-        {
-            mx2[i] = step;
-        }
-    }
-    ll ans = INT_MAX;
-    fr (i, 0, k)
-    {
-        ans = min(ans, max((mx_s[i]  +1 )/2, mx2[i]));
-    }
-    cout << ans - 1 << '\n';
-
+    // if (l == -1 || r == -1)
+    // {
+    //     cout << -1 << '\n';
+    //     return;
+    // }
+    // cout << l + 1 << ' ' << r + 1 << '\n';
 }
 
 int main(void)
